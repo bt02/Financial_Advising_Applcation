@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b7349a84-ddda-4912-b1d6-fcc3a1509de1" name="Changes" comment="" />
+    <list default="true" id="b7349a84-ddda-4912-b1d6-fcc3a1509de1" name="Changes" comment="Added to Budget and associated gui">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Finances/Budget.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Finances/Budget.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/BudgetGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/BudgetGUI.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/BudgetGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/BudgetGUI.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,6 +21,9 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -30,10 +38,25 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/bdtol/IdeaProjects/CSIS_505/Week_4/Exercise_2",
     "settings.editor.selected.configurable": "inlay.hints"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Financial_Advising_Applcation" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -55,5 +78,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added to Budget and associated gui" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added to Budget and associated gui" />
   </component>
 </project>

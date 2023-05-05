@@ -8,15 +8,15 @@ public class Budget {
     private double otherIncome = 0;
 
     //Needs
-    private double mortgage = 0;
-    private double rent = 0;
+    private double rentMortgage = 0;
     private double homeInsurance = 0;
     private double autoInsurance = 0;
     private double healthInsurance = 0;
-    private double utilites = 0;
+    private double utilities = 0;
     private double groceries = 0;
+    private double gasoline = 0;
+    private double phoneBill =0;
     private double needsOther = 0;
-
 
     //Wants
     private double clothing = 0;
@@ -31,7 +31,8 @@ public class Budget {
     private double retirement = 0;
     private double ccPayments = 0;
     private double loanPayments = 0;
-    private double financeOther = 0; //needs setter
+    private double savingsOther = 0;
+    private double debtsOther = 0;
 
     private double totalNeeds = 0;
     private double totalWants = 0;
@@ -46,69 +47,87 @@ public class Budget {
     }
 
     //Needs setters and puts for hashmap
-    public void setMortgage(double mortgage) {
-        this.mortgage = mortgage;
-        needs.put("Mortgage", mortgage);
+    public void setRentMortgage(double rentMortgage) {
+        this.rentMortgage = rentMortgage;
+        needs.put("Rent/Mortgage", rentMortgage);
     }
 
-    public void setRent(double rent) {
-        this.rent = rent;
-        needs.put("Rent", rent);
-    }
 
     public void setHomeInsurance(double homeInsurance) {
         this.homeInsurance = homeInsurance;
-        needs.put("Home Insurance", rent);
+        needs.put("Home Insurance", homeInsurance);
     }
 
     public void setAutoInsurance(double autoInsurance) {
         this.autoInsurance = autoInsurance;
+        needs.put("Auto Insurance" , autoInsurance);
     }
 
     public void setHealthInsurance(double healthInsurance) {
         this.healthInsurance = healthInsurance;
+        needs.put("Health Insurance", healthInsurance);
     }
 
-    public void setUtilites(double utilites) {
-        this.utilites = utilites;
+    public void setUtilities(double utilities) {
+        this.utilities = utilities;
+        needs.put("utilities", utilities);
     }
 
     public void setGroceries(double groceries) {
         this.groceries = groceries;
+        needs.put("Groceries", groceries);
+    }
+
+    public void setGasoline(double gasoline) {
+       this.gasoline = gasoline;
+       needs.put("Gasoline", gasoline);
+    }
+
+    public void setPhoneBill(double phoneBill){
+        this.phoneBill = phoneBill;
+        needs.put("Phone Bill", phoneBill);
     }
 
     public void setNeedsOther(double needsOther) {
         this.needsOther = needsOther;
+        needs.put("Other Needs", needsOther);
     }
 
     //Wants setter and puts for hashmap
     public void setClothing(double clothing) {
         this.clothing = clothing;
+        wants.put("Clothing", clothing);
     }
 
     public void setDining(double dining) {
         this.dining = dining;
+        wants.put("Dining", dining);
+
     }
 
     public void setMemberships(double memberships) {
         this.memberships = memberships;
+        wants.put("Memberships", memberships);
     }
 
     public void setTravel(double travel) {
         this.travel = travel;
+        wants.put("Travel", travel);
     }
 
     public void setStreamingServices(double streamingServices) {
         this.streamingServices = streamingServices;
+        wants.put("Streaming Services", streamingServices);
     }
 
     public void setWantsOther(double wantsOther) {
         this.wantsOther = wantsOther;
+        wants.put("Other Wants", wantsOther);
     }
 
-    public void setSavings(double savings) {
-        this.savings = savings;
-    }
+
+    //Finance setter and puts for hashmap
+    public void setSavings(double savings) {this.savings = savings;}
 
     public void setRetirement(double retirement) {
         this.retirement = retirement;
@@ -122,15 +141,12 @@ public class Budget {
         this.loanPayments = loanPayments;
     }
 
-    public void setOtherFinances(double otherFinances) {
-        this.otherFinances = otherFinances;
-    }
-
-    private double otherFinances = 0;
+    public void setSavingsOther(double savingsOther) {this.savingsOther = savingsOther;}
+    public void setDebtsOther(double debtsOther) {this.debtsOther = debtsOther;}
 
 
     //Hashmap to store all values
-    private HashMap<String, Double> needs = new HashMap<>();
+    public HashMap<String, Double> needs = new HashMap<>();
 
     private HashMap<String,Double> wants = new HashMap<>();
 
@@ -155,9 +171,13 @@ public class Budget {
         }
         return wantsTotal;
     }
+
+    public double getTotalFinance(){
+        return (savings + retirement +savingsOther) - (ccPayments + loanPayments +debtsOther);
+    }
     //Calculate net speeding
-    public double getNetSpend(){
-        return (income + otherIncome) - (getTotalNeeds() + getTotalWants());
+    public double getIncome(){
+        return income + otherIncome;
     }
 
 }
