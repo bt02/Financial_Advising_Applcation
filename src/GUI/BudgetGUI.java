@@ -28,7 +28,7 @@ public class BudgetGUI extends JFrame {
     private JTextField healthInsuranceField;
     private JTextField utilitiesField;
     private JTextField groceriesField;
-    private JLabel healInsuranceLabel;
+    private JLabel healthInsuranceLabel;
     private JLabel utilitiesLabel;
     private JLabel groceriesLabel;
     private JTextField gasolineField;
