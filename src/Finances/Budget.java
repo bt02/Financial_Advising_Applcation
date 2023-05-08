@@ -25,7 +25,6 @@ public class Budget {
     private double travel = 0;
     private double streamingServices = 0;
     private double wantsOther = 0;
-
     //Finances
     private double savings = 0;
     private double retirement = 0;
@@ -36,6 +35,7 @@ public class Budget {
 
     private double totalNeeds = 0;
     private double totalWants = 0;
+
 
     public void setIncome(double income) {
         this.income = income;

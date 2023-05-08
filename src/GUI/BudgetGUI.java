@@ -1,97 +1,98 @@
 package GUI;
 
 import Finances.Budget;
+import Finances.NetWorth;
+import Finances.RentvsBuy;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
+import java.util.Objects;
 
 public class BudgetGUI extends JFrame {
 
-    private JTextField travelField;
-    private JTextField diningField;
-    private JPanel mainPanel;
-    private JLabel mainTitle;
-    private JPanel contentPanel;
-    private JLabel incomeTitle;
-    private JLabel incomeLabel;
-    private JTextField otherIncomeField;
-    private JTextField incomeField;
-    private JLabel otherIncomeLabel;
-    private JLabel expensesField;
-    private JLabel needsLabel;
-    private JTextField mortgageField;
-    private JTextField homeInsuranceField;
-    private JTextField autoInsuranceField;
-    private JLabel mortgageLabel;
-    private JLabel homeInsuranceLabel;
-    private JLabel autoInsuranceLabel;
-    private JTextField healthInsuranceField;
-    private JTextField utilitiesField;
-    private JTextField groceriesField;
-    private JLabel healthInsuranceLabel;
-    private JLabel utilitiesLabel;
-    private JLabel groceriesLabel;
-    private JTextField gasolineField;
-    private JTextField phoneBillField;
-    private JTextField needsOtherField;
-    private JLabel gasolineLabel;
-    private JLabel phoneBillLabel;
-    private JLabel needsOtherLabel;
-    private JLabel wantsLabel;
-    private JTextField clothingField;
-    private JLabel clothingLabel;
-    private JLabel diningLabel;
-    private JLabel travelLabel;
-    private JTextField membershipsField;
-    private JTextField streamingServicesField;
-    private JTextField wantsOtherField;
-    private JLabel membershipsLabel;
-    private JLabel streamingServicesLabel;
-    private JLabel wantsOtherLabel;
-    private JLabel financesLabel;
-    private JLabel savingsLabel;
-    private JLabel retirementLabel;
-    private JLabel savingsOtherLabel;
-    private JTextField savingsOtherField;
-    private JTextField retirementField;
-    private JTextField savingsField;
-    private JLabel ccPaymentsLabel;
-    private JLabel loanPaymentsLabel;
-    private JLabel debtsOtherLabel;
-    private JTextField ccPaymentsField;
-    private JTextField loanPaymentsField;
-    private JTextField debtsOtherField;
-    private JPanel summeryPanel;
-    private JTextField needsTotalField;
-    private JTextField fiftyField;
-    private JLabel needsTotalLabel;
-    private JLabel wantsTotalLabel;
-    private JLabel financeTotalLabel;
-    private JButton calculateButton;
-    private JLabel fiftyLabel;
-    private JLabel thirtyLabel;
-    private JLabel twentyLabel;
-    private JTextField wantsTotalField;
-    private JTextField financesTotalField;
-    private JTextField thirtyField;
-    private JTextField twentyField;
-    private JTextField totalField;
-    private JButton submitButton;
+     JTextField travelField;
+     JTextField diningField;
+     JPanel mainPanel;
+     JPanel contentPanel;
+     JLabel incomeTitle;
+     JLabel incomeLabel;
+     JTextField otherIncomeField;
+     JTextField incomeField;
+     JLabel otherIncomeLabel;
+     JLabel expensesField;
+     JLabel needsLabel;
+     JTextField mortgageField;
+     JTextField homeInsuranceField;
+     JTextField autoInsuranceField;
+     JLabel mortgageLabel;
+     JLabel homeInsuranceLabel;
+     JLabel autoInsuranceLabel;
+     JTextField healthInsuranceField;
+     JTextField utilitiesField;
+     JTextField groceriesField;
+     JLabel healthInsuranceLabel;
+     JLabel utilitiesLabel;
+     JLabel groceriesLabel;
+     JTextField gasolineField;
+     JTextField phoneBillField;
+     JTextField needsOtherField;
+     JLabel gasolineLabel;
+     JLabel phoneBillLabel;
+     JLabel needsOtherLabel;
+     JLabel wantsLabel;
+     JTextField clothingField;
+     JLabel clothingLabel;
+     JLabel diningLabel;
+     JLabel travelLabel;
+     JTextField membershipsField;
+     JTextField streamingServicesField;
+     JTextField wantsOtherField;
+     JLabel membershipsLabel;
+     JLabel streamingServicesLabel;
+     JLabel wantsOtherLabel;
+     JLabel financesLabel;
+     JLabel savingsLabel;
+     JLabel retirementLabel;
+     JLabel savingsOtherLabel;
+     JTextField savingsOtherField;
+     JTextField retirementField;
+     JTextField savingsField;
+     JLabel ccPaymentsLabel;
+     JLabel loanPaymentsLabel;
+     JLabel debtsOtherLabel;
+     JTextField ccPaymentsField;
+     JTextField loanPaymentsField;
+     JTextField debtsOtherField;
+     JPanel summeryPanel;
+     JTextField needsTotalField;
+     JTextField fiftyField;
+     JLabel needsTotalLabel;
+     JLabel wantsTotalLabel;
+     JLabel financeTotalLabel;
+     JButton calculateButton;
+     JLabel fiftyLabel;
+     JLabel thirtyLabel;
+     JLabel twentyLabel;
+     JTextField wantsTotalField;
+     JTextField financesTotalField;
+     JTextField thirtyField;
+     JTextField twentyField;
+    private JComboBox comboBox;
+
 
     public BudgetGUI(){
         Budget budget = new Budget();
         setVisible(true);
-
         setContentPane(mainPanel);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
         pack();
 
 
-        try {
+     /*   try {
             UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel"); //Windows Look and feel
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
             e.printStackTrace();
-        }
+        }*/
         calculateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -134,6 +135,26 @@ public class BudgetGUI extends JFrame {
 
             }
         });
+        comboBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (comboBox.getSelectedItem() == "Net Worth") {
+                    close();
+                    new NetWorthGUI(new NetWorth());
+                }
+                if (comboBox.getSelectedItem() == "Rent vs Buy") {
+                    close();
+                    new RentvsBuyGUI(new RentvsBuy());
+                }
+
+            }
+        });
+
     }
+    public void close(){
+        WindowEvent closeWindow = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
+        Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(closeWindow);
+    }
+
 
 }
