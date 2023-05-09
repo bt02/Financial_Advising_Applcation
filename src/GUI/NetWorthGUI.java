@@ -8,8 +8,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
-import java.util.Arrays;
-import java.util.Objects;
+import java.text.DecimalFormat;
 
 public class NetWorthGUI extends JFrame{
      JPanel mainPanel;
@@ -87,7 +86,6 @@ public class NetWorthGUI extends JFrame{
                 //Calculate net worth amount per year
                 y = NetWorthGUI.this.netWorth.getCompoundInterest(NetWorthGUI.this.netWorth.getSavings(), NetWorthGUI.this.netWorth.getInterest()/100,
                         NetWorthGUI.this.netWorth.getCurrentAge(), NetWorthGUI.this.netWorth.getRetirementAge(), 12, NetWorthGUI.this.netWorth.getMonthlyContributions());
-
                 NetWorthGUI.this.netWorth.setFutureBalance(((double) Math.round(y[y.length - 1] * 100) /100));
                 close();
                 new NetWorthGUI(NetWorthGUI.this.netWorth);

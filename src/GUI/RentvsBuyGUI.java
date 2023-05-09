@@ -7,6 +7,7 @@ import Graphs.LineChart;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.text.DecimalFormat;
 
 public class RentvsBuyGUI extends JFrame{
     private JComboBox comboBox;
@@ -47,7 +48,7 @@ public class RentvsBuyGUI extends JFrame{
         setContentPane(mainPanel);
         pack();
 
-        housePriceField.setText(String.valueOf(RvB.gethousePrice()));
+        housePriceField.setText(String.valueOf(RvB.getPurchasePrice()));
         downPaymentField.setText(String.valueOf(RvB.getDownPayment()));
         aprField.setText(String.valueOf(RvB.getApr()));
         rentField.setText(String.valueOf(RvB.getRent()));
@@ -57,16 +58,23 @@ public class RentvsBuyGUI extends JFrame{
             loanTermComboBox.addItem("15");
             loanTermComboBox.addItem("30");
 
+            yearComboBox.addItem("    ");
+            for (int i = 1; i < 16; i++) {
+                yearComboBox.addItem(i);
+            }
+
         }else {
             loanTermComboBox.removeAllItems();
             loanTermComboBox.addItem("30");
             loanTermComboBox.addItem("15");
+
+            yearComboBox.addItem("    ");
+            for (int i = 1; i < 31; i++) {
+                yearComboBox.addItem(i);
+            }
+
         }
 
-        yearComboBox.addItem("    ");
-        for (int i = 1; i < 31; i++) {
-            yearComboBox.addItem(i);
-        }
 
         comboBox.addActionListener(new ActionListener() {
             @Override
@@ -84,22 +92,11 @@ public class RentvsBuyGUI extends JFrame{
         loanTermComboBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(loanTermComboBox.getSelectedItem() == "30"){
-                    yearComboBox.removeAllItems();
-                    yearComboBox.addItem("    ");
-                    for (int i = 1; i <31; i++) {
-                        yearComboBox.addItem(i);
-
-                    }
-                }else{
-                    yearComboBox.removeAllItems();
-                    yearComboBox.addItem("    ");
-                    for (int i = 1; i < 16; i++) {
-                        yearComboBox.addItem(i);
-                    }
+                if (loanTermComboBox.getSelectedItem() == "15") {
+                    RvB.setApr(15);
+                } else {
+                    RvB.setApr(30);
                 }
-
-
             }
         });
 
@@ -107,27 +104,21 @@ public class RentvsBuyGUI extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 //NetWorthGUI.this.netWorth.setCurrentAge(Integer.parseInt(ageField.getText()));
-                RentvsBuyGUI.this.RvB.sethousePrice(Double.parseDouble(housePriceField.getText()));
+                RentvsBuyGUI.this.RvB.setPurchasePrice(Double.parseDouble(housePriceField.getText()));
                 RentvsBuyGUI.this.RvB.setDownPayment(Double.parseDouble(downPaymentField.getText()));
                 RentvsBuyGUI.this.RvB.setApr(Double.parseDouble(aprField.getText()));
                 RentvsBuyGUI.this.RvB.setLoanTerm(Integer.parseInt((String) loanTermComboBox.getSelectedItem()));
                 RentvsBuyGUI.this.RvB.setRent(Double.parseDouble(rentField.getText()));
+                RentvsBuyGUI.this.RvB.setLoanAmount(RvB.getPurchasePrice() - RvB.getDownPayment());
 
-                //Calculations
-                RentvsBuyGUI.this.RvB.setMonthlyMortgage(RvB.calculateMonthlyPayment(RvB.getLoanAmount(), RvB.getApr(), RvB.getLoanTerm()));
-                RentvsBuyGUI.this.RvB.setLoanAmount(RvB.gethousePrice() - RvB.getDownPayment());
-                RentvsBuyGUI.this.RvB.setCompoundInterestMoney(RvB.calculateCompoundInterest(RvB.getDownPayment(), 6, RvB.getLoanTerm(),12));
-                RentvsBuyGUI.this.RvB.setCompoundInterestHouse(RvB.calculateCompoundInterest(RvB.getLoanAmount(), 3, RvB.getLoanTerm()));
-                RentvsBuyGUI.this.RvB.setAmortization(RvB.calculateAnnualAmortization(RvB.getLoanAmount(), RvB.getApr(), RvB.getLoanTerm(), RvB.gethousePrice()));
 
 
                 x = new int[RentvsBuyGUI.this.RvB.getLoanTerm()];
                 for (int i = 0; i < x.length; i++) {
                     x[i] = i+1;
                 }
-                rentTotal = RentvsBuyGUI.this.RvB.rentCost(RvB.getCompoundInterestMoney(), RvB.getLoanTerm(), RvB.getDownPayment(), RvB.getRent());
-                buyTotal = RentvsBuyGUI.this.RvB.houseCost(RvB.getMonthlyMortgage(), RvB.getDownPayment(), RvB.getLoanAmount(),
-                        RvB.getLoanTerm(), 3,RvB.gethousePrice(), RvB.getAmortization());
+                rentTotal = RentvsBuyGUI.this.RvB.calculateRentCosts(RvB.getLoanTerm(), RvB.getRent());
+                buyTotal = RentvsBuyGUI.this.RvB.calculateBuyCosts(RvB.getPurchasePrice(), RvB.getDownPayment(), RvB.getApr(), RvB.getLoanTerm());
 
                 close();
                 new RentvsBuyGUI(RentvsBuyGUI.this.RvB);
@@ -136,18 +127,20 @@ public class RentvsBuyGUI extends JFrame{
         yearComboBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                DecimalFormat decimalFormat = new DecimalFormat("#.##");
                 int year = (int) yearComboBox.getSelectedItem();
                 double b =(buyTotal[year-1]);
                 double r = (rentTotal[year-1]);
-                totalBuyField.setText(String.valueOf(b));
-                totalRentField.setText(String.valueOf(r));
+                totalBuyField.setText(String.valueOf(Double.parseDouble(decimalFormat.format(b))));
+                totalRentField.setText(String.valueOf(Double.parseDouble(decimalFormat.format(r))));
 
                 if(r <= b){
+
                     totalGainLabel.setText("Rent Gain");
-                    totalGainField.setText(String.valueOf(b-r));
+                    totalGainField.setText(String.valueOf(Double.parseDouble(decimalFormat.format(b-r))));
                 }else {
                     totalGainLabel.setText("Buy Gain");
-                    totalGainField.setText(String.valueOf(r-b));
+                    totalGainField.setText(String.valueOf(Double.parseDouble(decimalFormat.format(r-b))));
                 }
             }
         });

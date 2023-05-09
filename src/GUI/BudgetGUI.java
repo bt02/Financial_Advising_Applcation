@@ -7,7 +7,6 @@ import Finances.RentvsBuy;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.Objects;
 
 public class BudgetGUI extends JFrame {
 
