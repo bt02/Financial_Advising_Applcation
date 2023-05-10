@@ -662,8 +662,9 @@
         <properties>
           <model>
             <item value="Budget Worksheet"/>
-            <item value="Rent vs Buy"/>
+            <item value="Loan Worksheets"/>
             <item value="Net Worth"/>
+            <item value="Rent vs Buy"/>
           </model>
         </properties>
       </component>

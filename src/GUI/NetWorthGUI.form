@@ -16,6 +16,7 @@
           <model>
             <item value="Net Worth"/>
             <item value="Budget Worksheet"/>
+            <item value="Loan Worksheets"/>
             <item value="Rent vs Buy"/>
           </model>
         </properties>

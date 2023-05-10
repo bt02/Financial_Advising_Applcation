@@ -1,5 +1,7 @@
 package Loans;
 
+import java.util.Arrays;
+
 public class AutoLoan extends Loan {
 
     double vehiclePrice = 0;
@@ -34,10 +36,10 @@ public class AutoLoan extends Loan {
         this.amountOwed = amountOwed;
     }
 
-    public double getLoanAmount(double vehiclePrice, double tradeInValue, double downPayment, double amountOwedAtTradeIn){
+    public double getCarLoanAmount(double vehiclePrice, double tradeInValue, double downPayment, double amountOwedAtTradeIn){
        return  (vehiclePrice - tradeInValue - downPayment) + amountOwedAtTradeIn;
     }
-    public double calculateMonthlyPayment(double vehiclePrice, double tradeInValue, double downPayment, double amountOwedAtTradeIn, int loanTerm, double interestRate,double loanAmount) {
+    public double calculateMonthlyPayment(int loanTerm, double interestRate,double loanAmount) {
 
         // Calculate the monthly interest rate
         double monthlyInterestRate = interestRate / 12 / 100;

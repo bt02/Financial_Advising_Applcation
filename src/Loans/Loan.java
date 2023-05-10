@@ -1,13 +1,47 @@
 package Loans;
 
 import java.text.DecimalFormat;
+import java.util.Objects;
 
 public class Loan {
     double loanAmount = 0;
     double interestRate = 0;
     int loanTerm = 0;
     double downPayment = 0;
+    double monthlyPayment = 0;
+    double totalInterest = 0;
+    double totalPayment = 0;
+    int selectedIndex = 0;
 
+    public int getSelectedIndex(){
+        return selectedIndex;
+    }
+    public void setSelectedIndex(int selectedIndex){
+        this.selectedIndex = selectedIndex;
+    }
+    public double getMonthlyPayment() {
+        return monthlyPayment;
+    }
+
+    public void setMonthlyPayment(double monthlyPayment) {
+        this.monthlyPayment = monthlyPayment;
+    }
+
+    public double getTotalInterest() {
+        return totalInterest;
+    }
+
+    public void setTotalInterest(double totalInterest) {
+        this.totalInterest = totalInterest;
+    }
+
+    public double getTotalPayment() {
+        return totalPayment;
+    }
+
+    public void setTotalPayment(double totalPayment) {
+        this.totalPayment = totalPayment;
+    }
     public double getDownPayment(){
         return downPayment;
     }
@@ -38,18 +72,22 @@ public class Loan {
         this.loanTerm = loanTerm;
     }
 
-    public static double[][] calculateAmortization(double principal, double interestRate, int loanTerm, double monthlyPayment) {
+    public double[][] calculateAmortization(double principal, double interestRate, int loanTerm, double monthlyPayment, String unit) {
         DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
-
+        int numberOfPayments;
+        if (Objects.equals(unit,"Months")){
+             numberOfPayments = loanTerm;
+        }else {
+            numberOfPayments = loanTerm *12;
+        }
         // Convert interest rate to decimal and calculate monthly interest rate
         double monthlyInterestRate = interestRate / 100 / 12;
 
         // Calculate number of payments
-        int numberOfPayments = loanTerm * 12;
+
 
         // Create an array to store the amortization schedule
         double[][] amortizationSchedule = new double[numberOfPayments][4];
-        // Columns: Payment Number, Principal Payment, Interest Payment, Remaining Balance
 
         // Calculate amortization schedule
         double remainingBalance = principal;

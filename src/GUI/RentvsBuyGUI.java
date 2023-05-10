@@ -3,6 +3,9 @@ package GUI;
 import Finances.NetWorth;
 import Finances.RentvsBuy;
 import Graphs.LineChart;
+import Loans.AutoLoan;
+import Loans.HomeLoan;
+import Loans.PersonalLoan;
 
 import javax.swing.*;
 import java.awt.*;
@@ -83,9 +86,12 @@ public class RentvsBuyGUI extends JFrame{
                     close();;
                     new BudgetGUI();
                 }
-                if (comboBox.getSelectedItem() == "Net Worth") {
+                else if (comboBox.getSelectedItem() == "Net Worth") {
                     close();
                     new NetWorthGUI(new NetWorth());
+                }else {
+                    close();
+                    new LoanGUI(new AutoLoan(), new HomeLoan(), new PersonalLoan());
                 }
             }
         });
@@ -152,8 +158,8 @@ public class RentvsBuyGUI extends JFrame{
     }
 
     private void createUIComponents() {
-        LineChart line = new LineChart("Rent", "Buy", x, x, "Years", rentTotal, buyTotal, "Cost");
-        linePanel = line.createChartPanel("Rent vs Buy", "Rent", "Buy", x,x, rentTotal, buyTotal);
+        LineChart line = new LineChart("Rent", "Buy", x, "Years", rentTotal, buyTotal, "Cost");
+        linePanel = line.createChartPanel("Rent vs Buy", "Rent", "Buy", x, rentTotal, buyTotal);
 
     }
 

@@ -3,6 +3,9 @@ package GUI;
 import Finances.Budget;
 import Finances.NetWorth;
 import Finances.RentvsBuy;
+import Loans.AutoLoan;
+import Loans.HomeLoan;
+import Loans.PersonalLoan;
 
 import javax.swing.*;
 import java.awt.*;
@@ -141,9 +144,12 @@ public class BudgetGUI extends JFrame {
                     close();
                     new NetWorthGUI(new NetWorth());
                 }
-                if (comboBox.getSelectedItem() == "Rent vs Buy") {
+                else if (comboBox.getSelectedItem() == "Rent vs Buy") {
                     close();
                     new RentvsBuyGUI(new RentvsBuy());
+                }else {
+                    close();
+                    new LoanGUI(new AutoLoan(), new HomeLoan(), new PersonalLoan());
                 }
 
             }

@@ -5,17 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b7349a84-ddda-4912-b1d6-fcc3a1509de1" name="Changes" comment="Added to Budget and associated gui">
-      <change afterPath="$PROJECT_DIR$/src/GUI/LoanGUI.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GUI/LoanGUI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Loans/AutoLoan.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Loans/HomeLoan.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Loans/Loan.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Loans/PersonalLoan.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/BudgetGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/BudgetGUI.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/BudgetGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/BudgetGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/LoanGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/LoanGUI.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/LoanGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/LoanGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/NetWorthGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/NetWorthGUI.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/NetWorthGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/NetWorthGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Loans/loanplaceholder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/RentvsBuyGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/RentvsBuyGUI.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/RentvsBuyGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/RentvsBuyGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Graphs/LineChart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphs/LineChart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Loans/AutoLoan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Loans/AutoLoan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Loans/HomeLoan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Loans/HomeLoan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Loans/Loan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Loans/Loan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Loans/PersonalLoan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Loans/PersonalLoan.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +57,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "false",
     "UI_DESIGNER_EDITOR_MODE.PaletteManager.STATE": "right",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "false",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
     "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.STATE": "left",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
@@ -70,23 +73,9 @@
       <recent name="C:\Users\bdtol\IdeaProjects\Financial_Advising_Applcation\lib" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="HousePurchaseCalculator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="HousePurchaseCalculator" />
-      <module name="Financial_Advising_Applcation" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="Financial_Advising_Applcation" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RentalCalculator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="RentalCalculator" />
       <module name="Financial_Advising_Applcation" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -105,41 +94,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="GUI.RentvsBuyGUI" />
-      <module name="Financial_Advising_Applcation" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="loanplaceholder" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Loans.loanplaceholder" />
-      <module name="Financial_Advising_Applcation" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Loans.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
-      <item itemvalue="Application.Unnamed" />
-      <item itemvalue="Application.loanplaceholder" />
-      <item itemvalue="Application.HousePurchaseCalculator" />
-      <item itemvalue="Application.RentalCalculator" />
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.RentvsBuy" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.loanplaceholder" />
         <item itemvalue="Application.RentvsBuy" />
-        <item itemvalue="Application.RentalCalculator" />
-        <item itemvalue="Application.HousePurchaseCalculator" />
       </list>
     </recent_temporary>
   </component>
