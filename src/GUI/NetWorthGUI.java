@@ -62,6 +62,7 @@ public class NetWorthGUI extends JFrame{
                     close();
                     new RentvsBuyGUI(new RentvsBuy());
                 }
+
             }
         });
 
@@ -91,22 +92,15 @@ public class NetWorthGUI extends JFrame{
                 new NetWorthGUI(NetWorthGUI.this.netWorth);
             }
         });
-
-
-
     }
     public void close(){
         WindowEvent closeWindow = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
         Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(closeWindow);
     }
 
-
     private void createUIComponents() {
             //Create line graph
         LineChart line = new LineChart("Net Worth", x, "Years", y, "Money");
         linePanel = line.createChartPanel(line.getSeries1(), line.getxS1Values(), line.getyS1Values());
-
-
     }
-
 }
