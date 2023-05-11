@@ -5,7 +5,7 @@ import Finances.RentvsBuy;
 import Graphs.LineChart;
 import Loans.AutoLoan;
 import Loans.HomeLoan;
-import Loans.PersonalLoan;
+import Loans.Loan;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,79 +15,78 @@ import java.awt.event.WindowEvent;
 import java.text.DecimalFormat;
 
 public class LoanGUI extends JFrame {
-    private JComboBox comboBox;
-    private JTabbedPane mainLoanPane;
-    private JPanel mainPanel;
-    private JPanel homeLoanPanel;
-    private JPanel autoLoanPanel;
-    private JPanel personalPanel;
-    private JPanel homeContentPanel;
-    private JPanel homeOutputPanel;
-    private JTextField homeYearlyIncomeField;
-    private JTextField homeDownPaymentField;
-    private JTextField homeMortgageField;
-    private JTextField homeAprField;
-    private JComboBox homeLoanTermComboBox;
-    private JTextField homePriceField;
-    private JTextField homeTotalInterestField;
-    private JTextField homeTotalPaymentsField;
-    private JPanel homeLinePanel;
-    private JLabel homeYearlyIncomeLabel;
-    private JLabel homeDownPaymentLabel;
-    private JLabel homeMortgageLabel;
-    private JLabel homeAprLabel;
-    private JLabel HomeLoanTermLabel;
-    private JLabel homePriceLabel;
-    private JLabel homeTotalInterestLabel;
-    private JLabel homeTotalPaymentsLabel;
-    private JTextField homeLoanAmountField;
-    private JLabel homeLoanAmountLabel;
-    private JButton homeCalculateButton;
-    private JPanel autoContenPanel;
-    private JPanel autoOutputPanel;
-    private JLabel vehiclePriceLabel;
-    private JTextField vehiclePriceField;
-    private JTextField vehicleDownPaymentField;
-    private JLabel vehicleDownPaymentLabel;
-    private JLabel vehicleTradeLabel;
-    private JTextField vehicleTradeField;
-    private JLabel vehicleOwedLabe;
-    private JTextField vehicleOwedField;
-    private JLabel vehicleAprLabel;
-    private JTextField vehicleAprField;
-    private JLabel vehicleLoanTermLabel;
-    private JTextField vehicleLoanTermField;
-    private JButton vehicleCalculate;
-    private JPanel vehicleLinePanel;
-    private JLabel vehiclePaymentLabel;
-    private JTextField vehiclePaymentField;
-    private JLabel vehicleLoanAmountLabel;
-    private JTextField vehicleLoanAmountField;
-    private JLabel vehicleTotalInterstLabel;
-    private JTextField vehicleTotalInterestField;
-    private JLabel vehicleTotalPaymentsLabel;
-    private JTextField vehicleTotalPaymentsField;
-    private JPanel personalContentPanel;
-    private JPanel personalOutputPanel;
-    private JPanel personalLinePanel;
-    private JLabel personalPaymentLabel;
-    private JTextField personalPaymentField;
-    private JTextField personalLaonAmountField;
-    private JLabel personalTotalInterestLabel;
-    private JTextField personalTotalInterstField;
-    private JLabel personalTotalPaymentsLabel;
-    private JTextField personalTotalPaymentsField;
-    private JLabel personalLoanAmountLabel;
-    private JTextField personalLoanAmountField;
-    private JLabel personalAprLabel;
-    private JTextField personalAprField;
-    private JLabel personalLoanTermLabel;
-    private JTextField personalLoanTermField;
-    private JButton peronalCalculateButton;
+     JComboBox comboBox;
+     JTabbedPane mainLoanPane;
+     JPanel mainPanel;
+     JPanel homeLoanPanel;
+     JPanel autoLoanPanel;
+     JPanel personalPanel;
+     JPanel homeContentPanel;
+     JPanel homeOutputPanel;
+     JTextField homeYearlyIncomeField;
+     JTextField homeDownPaymentField;
+     JTextField homeMortgageField;
+     JTextField homeAprField;
+     JComboBox homeLoanTermComboBox;
+     JTextField homePriceField;
+     JTextField homeTotalInterestField;
+     JTextField homeTotalPaymentsField;
+     JPanel homeLinePanel;
+     JLabel homeYearlyIncomeLabel;
+     JLabel homeDownPaymentLabel;
+     JLabel homeMortgageLabel;
+     JLabel homeAprLabel;
+     JLabel HomeLoanTermLabel;
+     JLabel homePriceLabel;
+     JLabel homeTotalInterestLabel;
+     JLabel homeTotalPaymentsLabel;
+     JTextField homeLoanAmountField;
+     JLabel homeLoanAmountLabel;
+     JButton homeCalculateButton;
+     JPanel autoContentPanel;
+     JPanel autoOutputPanel;
+     JLabel vehiclePriceLabel;
+     JTextField vehiclePriceField;
+     JTextField vehicleDownPaymentField;
+     JLabel vehicleDownPaymentLabel;
+     JLabel vehicleTradeLabel;
+     JTextField vehicleTradeField;
+     JLabel vehicleOwedLabel;
+     JTextField vehicleOwedField;
+     JLabel vehicleAprLabel;
+     JTextField vehicleAprField;
+     JLabel vehicleLoanTermLabel;
+     JTextField vehicleLoanTermField;
+     JButton vehicleCalculate;
+     JPanel vehicleLinePanel;
+     JLabel vehiclePaymentLabel;
+     JTextField vehiclePaymentField;
+     JLabel vehicleLoanAmountLabel;
+     JTextField vehicleLoanAmountField;
+     JLabel vehicleTotalInterestLabel;
+     JTextField vehicleTotalInterestField;
+     JLabel vehicleTotalPaymentsLabel;
+     JTextField vehicleTotalPaymentsField;
+     JPanel personalContentPanel;
+     JPanel personalOutputPanel;
+     JPanel personalLinePanel;
+     JLabel personalPaymentLabel;
+     JTextField personalPaymentField;
+     JTextField personalLoanAmountField;
+     JLabel personalTotalInterestLabel;
+     JTextField personalTotalInterestField;
+     JLabel personalTotalPaymentsLabel;
+     JTextField personalTotalPaymentsField;
+     JLabel personalLoanAmountLabel;
+     JLabel personalAprLabel;
+     JTextField personalAprField;
+     JLabel personalLoanTermLabel;
+     JTextField personalLoanTermField;
+     JButton personalCalculateButton;
 
     AutoLoan auto;
     HomeLoan home;
-    PersonalLoan personal;
+    Loan personal;
     static int[] paymentNumber1 = new int[]{1};
     static double[] principalPayment1 = new double[]{1};
     static double[] interestPayment1 = new double[]{1};
@@ -97,12 +96,12 @@ public class LoanGUI extends JFrame {
     static int[] paymentNumber3 = new int[]{1};
     static double[] principalPayment3 = new double[]{1};
     static double[] interestPayment3 = new double[]{1};
-    double amortization[][];
-    int[] pay;
+    double[][] amortization;
+    int[] mon;
     double[] princ;
     double[] inter;
 
-    public LoanGUI(AutoLoan auto, HomeLoan home, PersonalLoan personal){
+    public LoanGUI(AutoLoan auto, HomeLoan home, Loan personal) {
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
         this.auto = auto;
         this.home = home;
@@ -111,11 +110,11 @@ public class LoanGUI extends JFrame {
         setContentPane(mainPanel);
         setVisible(true);
         pack();
-        if (personal.getSelectedIndex() == 1){
+        if (personal.getSelectedIndex() == 1) {
             mainLoanPane.setSelectedIndex(2);
         } else if (home.getSelectedIndex() == 1) {
             mainLoanPane.setSelectedIndex(1);
-        }else{
+        } else {
             mainLoanPane.setSelectedIndex(0);
         }
         //Set auto variables
@@ -134,13 +133,13 @@ public class LoanGUI extends JFrame {
         //Set home variables
         homeYearlyIncomeField.setText(String.valueOf(home.getYearlyIncome()));
         homeDownPaymentField.setText(String.valueOf(home.getDownPayment()));
-        homeMortgageField.setText(String.valueOf(home.getMonthlyMortgage()));
+        homeMortgageField.setText(String.valueOf(home.getMonthlyPayment()));
         homeAprField.setText(String.valueOf(home.getInterestRate()));
-        if (home.getLoanTerm() == 15){
+        if (home.getLoanTerm() == 15) {
             homeLoanTermComboBox.removeAllItems();
             homeLoanTermComboBox.addItem("15");
             homeLoanTermComboBox.addItem("30");
-        }else{
+        } else {
             homeLoanTermComboBox.removeAllItems();
             homeLoanTermComboBox.addItem("30");
             homeLoanTermComboBox.addItem("15");
@@ -155,7 +154,7 @@ public class LoanGUI extends JFrame {
         personalAprField.setText(String.valueOf(personal.getInterestRate()));
         personalLoanTermField.setText(String.valueOf(personal.getLoanTerm()));
         personalPaymentField.setText(decimalFormat.format(personal.getMonthlyPayment()));
-        personalTotalInterstField.setText(decimalFormat.format(personal.getTotalInterest()));
+        personalTotalInterestField.setText(decimalFormat.format(personal.getTotalInterest()));
         personalTotalPaymentsField.setText(decimalFormat.format(personal.getTotalPayment()));
 
 
@@ -169,40 +168,40 @@ public class LoanGUI extends JFrame {
                 auto.setAmountOwed(Double.parseDouble(vehicleOwedField.getText()));
                 auto.setInterestRate(Double.parseDouble(vehicleAprField.getText()));
                 auto.setLoanTerm(Integer.parseInt(vehicleLoanTermField.getText()));
-                auto.setLoanAmount(auto.getCarLoanAmount(auto.getVehiclePrice(), auto.getTradInValue(),auto.getDownPayment(), auto.getAmountOwed()));
+                auto.setLoanAmount(auto.getCarLoanAmount(auto.getVehiclePrice(), auto.getTradInValue(), auto.getDownPayment(), auto.getAmountOwed()));
                 double monthlyPayment = auto.calculateMonthlyPayment(auto.getLoanTerm(),
-                                auto.getInterestRate(), auto.getLoanAmount());
+                        auto.getInterestRate(), auto.getLoanAmount());
                 auto.setMonthlyPayment(monthlyPayment);
 
-                amortization = auto.calculateAmortization(auto.getLoanAmount(),auto.getInterestRate(), auto.getLoanTerm(), monthlyPayment, "Months");
+                amortization = auto.calculateAmortization(auto.getLoanAmount(), auto.getInterestRate(), auto.getLoanTerm(), monthlyPayment, "Months");
 
-                pay  = new int[amortization.length];
+                mon = new int[amortization.length];
                 princ = new double[amortization.length];
                 inter = new double[amortization.length];
 
                 double interTotal = 0;
 
                 for (int i = 0; i < amortization.length; i++) {
-                    pay[i] = (int) amortization[i][0];
+                    mon[i] = (int) amortization[i][0];
                     princ[i] = amortization[i][1];
                     inter[i] = amortization[i][2];
 
-                    if (i==0){
+                    if (i == 0) {
                         interTotal = inter[i];
-                    }else{
+                    } else {
                         interTotal += inter[i];
                     }
                 }
                 auto.setTotalInterest(interTotal);
                 auto.setTotalPayment(auto.getLoanAmount() + interTotal);
 
-                paymentNumber1 = pay;
+                paymentNumber1 = mon;
                 principalPayment1 = princ;
                 interestPayment1 = inter;
                 home.setSelectedIndex(0);
                 personal.setSelectedIndex(0);
                 close();
-                new LoanGUI(LoanGUI.this.auto, LoanGUI.this.home, LoanGUI.this.personal);
+                new LoanGUI(auto, home, personal);
             }
         });
         //Home loan calculate button
@@ -211,40 +210,44 @@ public class LoanGUI extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 home.setYearlyIncome(Double.parseDouble(homeYearlyIncomeField.getText()));
                 home.setDownPayment(Double.parseDouble(homeDownPaymentField.getText()));
-                home.setMonthlyMortgage(Double.parseDouble(homeMortgageField.getText()));
+                home.setMonthlyPayment(Double.parseDouble(homeMortgageField.getText()));
                 home.setInterestRate(Double.parseDouble(homeAprField.getText()));
-                if (homeLoanTermComboBox.getSelectedItem() == "15"){
+                if (homeLoanTermComboBox.getSelectedItem() == "15") {
                     home.setLoanTerm(15);
-                }else{
+                } else {
                     home.setLoanTerm(30);
                 }
-                home.setHousePrice(home.calculateAffordability(home.getYearlyIncome(), home.getDownPayment(), home.getInterestRate(),
-                        home.getLoanTerm(), home.getMonthlyMortgage()));
+                home.setHousePrice(home.calculateAffordability(home.getYearlyIncome(), home.getLoanTerm(), home.getInterestRate(),
+                        home.getMonthlyPayment(), home.getDownPayment()));
+
                 home.setLoanAmount(home.getHousePrice() - home.getDownPayment());
 
                 amortization = home.calculateAmortization(home.getLoanAmount(), home.getInterestRate(), home.getLoanTerm(),
                         home.getMonthlyPayment(), "Years");
 
-                pay  = new int[amortization.length];
-                princ = new double[amortization.length];
-                inter = new double[amortization.length];
+                mon = new int[amortization.length/12];
+                princ = new double[amortization.length/12];
+                inter = new double[amortization.length/12];
 
                 double interTotal = 0;
-
+                double[] interHolder = new double[amortization.length]; //placeholder for rolling total
+                //Convert amortization months to years
                 for (int i = 0; i < amortization.length; i++) {
-                    pay[i] = (int) amortization[i][0];
-                    princ[i] = amortization[i][1];
-                    inter[i] = amortization[i][2];
-
-                    if (i==0){
-                        interTotal = inter[i];
-                    }else{
-                        interTotal += inter[i];
+                    if (i % 12 == 0){
+                        mon[i/12] = (int) amortization[i][0] /12 +1;
+                        princ[i/12] = amortization[i][1];
+                        inter[i/12] = amortization[i][2];
+                    }
+                    interHolder[i] = amortization[i][2];
+                    if (i == 0) {
+                        interTotal = interHolder[i];
+                    } else {
+                        interTotal += interHolder[i];
                     }
                 }
                 home.setTotalPayment(home.getHousePrice() + interTotal);
                 home.setTotalInterest(interTotal);
-                paymentNumber2 = pay;
+                paymentNumber2 = mon;
                 principalPayment2 = princ;
                 interestPayment2 = inter;
 
@@ -252,39 +255,39 @@ public class LoanGUI extends JFrame {
                 personal.setSelectedIndex(0);
 
                 close();
-                new LoanGUI(LoanGUI.this.auto, LoanGUI.this.home, LoanGUI.this.personal);
+                new LoanGUI(auto, home, personal);
             }
         });
-        peronalCalculateButton.addActionListener(new ActionListener() {
+        personalCalculateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 personal.setLoanAmount(Double.parseDouble(personalLoanAmountField.getText()));
                 personal.setInterestRate(Double.parseDouble(personalAprField.getText()));
                 personal.setLoanTerm(Integer.parseInt(personalLoanTermField.getText()));
-                double monthly = personal.calculateMonthlyPayment(personal.getLoanAmount(), personal.getInterestRate(), personal.getLoanTerm());
+                double monthly = personal.calculateMonthlyPayment(personal.getLoanTerm(), personal.getInterestRate(), personal.getLoanAmount());
                 personal.setMonthlyPayment(monthly);
                 amortization = personal.calculateAmortization(personal.getLoanAmount(), personal.getInterestRate(), personal.getLoanTerm(), personal.getMonthlyPayment(), "Months");
 
-                pay  = new int[amortization.length];
+                mon = new int[amortization.length];
                 princ = new double[amortization.length];
                 inter = new double[amortization.length];
 
                 double interTotal = 0;
 
                 for (int i = 0; i < amortization.length; i++) {
-                    pay[i] = (int) amortization[i][0];
+                    mon[i] = (int) amortization[i][0];
                     princ[i] = amortization[i][1];
                     inter[i] = amortization[i][2];
 
-                    if (i==0){
+                    if (i == 0) {
                         interTotal = inter[i];
-                    }else{
+                    } else {
                         interTotal += inter[i];
                     }
                 }
                 personal.setTotalPayment(personal.getLoanAmount() + interTotal);
                 personal.setTotalInterest(interTotal);
-                paymentNumber3 = pay;
+                paymentNumber3 = mon;
                 principalPayment3 = princ;
                 interestPayment3 = inter;
 
@@ -292,51 +295,47 @@ public class LoanGUI extends JFrame {
                 personal.setSelectedIndex(1);
 
                 close();
-                new LoanGUI(LoanGUI.this.auto, LoanGUI.this.home, LoanGUI.this.personal);
+                new LoanGUI(auto, home, personal);
 
             }
         });
         comboBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(comboBox.getSelectedItem() == "Budget Worksheet"){
-                    close();;
+                if (comboBox.getSelectedItem() == "Budget Worksheet") {
+                    close();
+                    ;
                     new BudgetGUI();
-                }
-                else if (comboBox.getSelectedItem() == "Rent vs Buy") {
+                } else if (comboBox.getSelectedItem() == "Rent vs Buy") {
                     close();
                     new RentvsBuyGUI(new RentvsBuy());
-                }else{
+                } else {
                     close();
                     new NetWorthGUI(new NetWorth());
                 }
             }
         });
     }
-    public void close(){
-        WindowEvent closeWindow = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
+
+    public void close() {
+        WindowEvent closeWindow = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
         Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(closeWindow);
     }
 
-    private void createUIComponents() {
-        LineChart autoLine = new LineChart("Principal", "Interest", paymentNumber1,
-                "Month Number", principalPayment1, interestPayment1,"Cost" );
+     private void createUIComponents() {
+        LineChart autoLine = new LineChart("Loan Principal", "Interest", paymentNumber1,
+                "Month Number", principalPayment1, interestPayment1, "Cost");
         vehicleLinePanel = autoLine.createChartPanel("Amortization", "Principal", "Interest", paymentNumber1, principalPayment1, interestPayment1);
 
         LineChart homeLine = new LineChart("Principal", "Interest", paymentNumber2,
-                "Month Number", principalPayment2, interestPayment2,"Cost" );
-        homeLinePanel = autoLine.createChartPanel("Amortization", "Principal", "Interest", paymentNumber2, principalPayment2, interestPayment2);
+                "Month Number", principalPayment2, interestPayment2, "Cost");
+        homeLinePanel = autoLine.createChartPanel("Loan Amortization", "Principal", "Interest", paymentNumber2, principalPayment2, interestPayment2);
 
         LineChart personalLine = new LineChart("Principal", "Interest", paymentNumber3,
-                "Month Number", principalPayment3, interestPayment3,"Cost" );
-        personalLinePanel = autoLine.createChartPanel("Amortization", "Principal", "Interest", paymentNumber3, principalPayment3, interestPayment3);
+                "Month Number", principalPayment3, interestPayment3, "Cost");
+        personalLinePanel = autoLine.createChartPanel("Loan Amortization", "Principal", "Interest", paymentNumber3, principalPayment3, interestPayment3);
 
 
-    }
-
-
-    public static void main(String[] args) {
-        new LoanGUI(new AutoLoan(), new HomeLoan(), new PersonalLoan());
     }
 }
 

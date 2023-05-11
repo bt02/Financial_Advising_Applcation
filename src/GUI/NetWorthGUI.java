@@ -5,7 +5,7 @@ import Finances.RentvsBuy;
 import Graphs.LineChart;
 import Loans.AutoLoan;
 import Loans.HomeLoan;
-import Loans.PersonalLoan;
+import Loans.Loan;
 
 import javax.swing.*;
 import java.awt.*;
@@ -46,12 +46,12 @@ public class NetWorthGUI extends JFrame{
         setVisible(true);
         pack();
 
-        ageField.setText(String.valueOf(this.netWorth.getCurrentAge()));
-        retirementAgeField.setText(String.valueOf(this.netWorth.getRetirementAge()));
-        savingsField.setText(String.valueOf(this.netWorth.getSavings()));
-        interestField.setText(String.valueOf(this.netWorth.getInterest()));
-        futureField.setText(String.valueOf(this.netWorth.getFutureBalance()));
-        contributionsField.setText(String.valueOf(this.netWorth.getMonthlyContributions()));
+        ageField.setText(String.valueOf(netWorth.getCurrentAge()));
+        retirementAgeField.setText(String.valueOf(netWorth.getRetirementAge()));
+        savingsField.setText(String.valueOf(netWorth.getSavings()));
+        interestField.setText(String.valueOf(netWorth.getInterest()));
+        futureField.setText(String.valueOf(netWorth.getFutureBalance()));
+        contributionsField.setText(String.valueOf(netWorth.getMonthlyContributions()));
 
 
         comboBox.addActionListener(new ActionListener() {
@@ -66,7 +66,7 @@ public class NetWorthGUI extends JFrame{
                     new RentvsBuyGUI(new RentvsBuy());
                 }else{
                     close();
-                    new LoanGUI(new AutoLoan(), new HomeLoan(), new PersonalLoan());
+                    new LoanGUI(new AutoLoan(), new HomeLoan(), new Loan());
                 }
 
             }
@@ -78,24 +78,24 @@ public class NetWorthGUI extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                NetWorthGUI.this.netWorth.setCurrentAge(Integer.parseInt(ageField.getText()));
-                NetWorthGUI.this.netWorth.setRetirementAge(Integer.parseInt(retirementAgeField.getText()));
-                NetWorthGUI.this.netWorth.setSavings(Double.parseDouble(savingsField.getText()));
-                NetWorthGUI.this.netWorth.setInterest(Double.parseDouble(interestField.getText()));
-                NetWorthGUI.this.netWorth.setMonthlyContributions(Double.parseDouble(contributionsField.getText()));
+                netWorth.setCurrentAge(Integer.parseInt(ageField.getText()));
+                netWorth.setRetirementAge(Integer.parseInt(retirementAgeField.getText()));
+                netWorth.setSavings(Double.parseDouble(savingsField.getText()));
+                netWorth.setInterest(Double.parseDouble(interestField.getText()));
+                netWorth.setMonthlyContributions(Double.parseDouble(contributionsField.getText()));
 
                 //Create array of ages over time
-                x = new int[NetWorthGUI.this.netWorth.getRetirementAge() - NetWorthGUI.this.netWorth.getCurrentAge()];
+                x = new int[netWorth.getRetirementAge() - netWorth.getCurrentAge()];
                 for (int i = 0; i < x.length; i++) {
-                    x[i] = i + NetWorthGUI.this.netWorth.getCurrentAge() + 1;
+                    x[i] = i + netWorth.getCurrentAge() + 1;
 
                 }
                 //Calculate net worth amount per year
-                y = NetWorthGUI.this.netWorth.getCompoundInterest(NetWorthGUI.this.netWorth.getSavings(), NetWorthGUI.this.netWorth.getInterest()/100,
-                        NetWorthGUI.this.netWorth.getCurrentAge(), NetWorthGUI.this.netWorth.getRetirementAge(), 12, NetWorthGUI.this.netWorth.getMonthlyContributions());
-                NetWorthGUI.this.netWorth.setFutureBalance(((double) Math.round(y[y.length - 1] * 100) /100));
+                y = netWorth.getCompoundInterest(netWorth.getSavings(), netWorth.getInterest()/100,
+                        netWorth.getCurrentAge(), netWorth.getRetirementAge(), 12, netWorth.getMonthlyContributions());
+                netWorth.setFutureBalance(((double) Math.round(y[y.length - 1] * 100) /100));
                 close();
-                new NetWorthGUI(NetWorthGUI.this.netWorth);
+                new NetWorthGUI(netWorth);
             }
         });
     }

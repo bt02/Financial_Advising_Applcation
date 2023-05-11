@@ -1,18 +1,16 @@
+//Store net worth variables and calculates compound interest for NetWorthGUI
 package Finances;
-
-
-import GUI.NetWorthGUI;
-
-import java.util.Arrays;
 
 public class NetWorth {
 
     private int currentAge = 0;
-    private int retirementAge= 33;
-    private double interest = 6.0;
-    private double savings= 2000;
+    private int retirementAge= 0;
+    private double interest = 0;
+    private double savings= 0;
     private double futureBalance = 0;
-    private double monthlyContributions = 100;
+    private double monthlyContributions = 0;
+
+    //Getter and Setters
 
     public  double getMonthlyContributions(){return monthlyContributions;}
     public void setMonthlyContributions(double monthlyContributions){this.monthlyContributions = monthlyContributions;}
@@ -48,6 +46,8 @@ public class NetWorth {
         this.interest = interest;
     }
 
+    //Calculates compound interest each year for inputted duration
+
     public double[] getCompoundInterest(double principal, double interestRate, int currentAge, int retirementAge, int compoundPerYear, double monthlyContribution) {
         int years = retirementAge - currentAge;
         double[] amount = new double[years];
@@ -59,7 +59,6 @@ public class NetWorth {
                 amount[i] = principal;
             }
         }
-
         return amount ;
     }
 

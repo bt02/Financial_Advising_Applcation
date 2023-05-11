@@ -5,7 +5,7 @@ import Finances.RentvsBuy;
 import Graphs.LineChart;
 import Loans.AutoLoan;
 import Loans.HomeLoan;
-import Loans.PersonalLoan;
+import Loans.Loan;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,30 +13,30 @@ import java.awt.event.*;
 import java.text.DecimalFormat;
 
 public class RentvsBuyGUI extends JFrame{
-    private JComboBox comboBox;
-    private JPanel contentPanel;
-    private JPanel mainPanel;
-    private JPanel outputPanel;
-    private JTextField housePriceField;
-    private JComboBox loanTermComboBox;
-    private JTextField rentField;
-    private JTextField aprField;
-    private JLabel housePriceLabel;
-    private JLabel downPaymentLabel;
-    private JTextField downPaymentField;
-    private JLabel aprLabel;
-    private JLabel loanTermLabel;
-    private JLabel rentLabel;
-    private JComboBox yearComboBox;
-    private JTextField totalBuyField;
-    private JTextField totalRentField;
-    private JLabel yearLabel;
-    private JLabel totalBuyLabel;
-    private JLabel totalRentLabel;
-    private JTextField totalGainField;
-    private JPanel linePanel;
-    private JLabel totalGainLabel;
-    private JButton calculateButton;
+     JComboBox comboBox;
+     JPanel contentPanel;
+     JPanel mainPanel;
+     JPanel outputPanel;
+     JTextField housePriceField;
+     JComboBox loanTermComboBox;
+     JTextField rentField;
+     JTextField aprField;
+     JLabel housePriceLabel;
+     JLabel downPaymentLabel;
+     JTextField downPaymentField;
+     JLabel aprLabel;
+     JLabel loanTermLabel;
+     JLabel rentLabel;
+     JComboBox yearComboBox;
+     JTextField totalBuyField;
+     JTextField totalRentField;
+     JLabel yearLabel;
+     JLabel totalBuyLabel;
+     JLabel totalRentLabel;
+     JTextField totalGainField;
+     JPanel linePanel;
+     JLabel totalGainLabel;
+     JButton calculateButton;
 
 
     static double[] rentTotal = new double[]{1};  //Series 1 y values
@@ -78,7 +78,6 @@ public class RentvsBuyGUI extends JFrame{
 
         }
 
-
         comboBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -91,7 +90,7 @@ public class RentvsBuyGUI extends JFrame{
                     new NetWorthGUI(new NetWorth());
                 }else {
                     close();
-                    new LoanGUI(new AutoLoan(), new HomeLoan(), new PersonalLoan());
+                    new LoanGUI(new AutoLoan(), new HomeLoan(), new Loan());
                 }
             }
         });
@@ -110,24 +109,24 @@ public class RentvsBuyGUI extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 //NetWorthGUI.this.netWorth.setCurrentAge(Integer.parseInt(ageField.getText()));
-                RentvsBuyGUI.this.RvB.setPurchasePrice(Double.parseDouble(housePriceField.getText()));
-                RentvsBuyGUI.this.RvB.setDownPayment(Double.parseDouble(downPaymentField.getText()));
-                RentvsBuyGUI.this.RvB.setApr(Double.parseDouble(aprField.getText()));
-                RentvsBuyGUI.this.RvB.setLoanTerm(Integer.parseInt((String) loanTermComboBox.getSelectedItem()));
-                RentvsBuyGUI.this.RvB.setRent(Double.parseDouble(rentField.getText()));
-                RentvsBuyGUI.this.RvB.setLoanAmount(RvB.getPurchasePrice() - RvB.getDownPayment());
+                RvB.setPurchasePrice(Double.parseDouble(housePriceField.getText()));
+                RvB.setDownPayment(Double.parseDouble(downPaymentField.getText()));
+                RvB.setApr(Double.parseDouble(aprField.getText()));
+                RvB.setLoanTerm(Integer.parseInt((String) loanTermComboBox.getSelectedItem()));
+                RvB.setRent(Double.parseDouble(rentField.getText()));
+                RvB.setLoanAmount(RvB.getPurchasePrice() - RvB.getDownPayment());
 
 
 
-                x = new int[RentvsBuyGUI.this.RvB.getLoanTerm()];
+                x = new int[RvB.getLoanTerm()];
                 for (int i = 0; i < x.length; i++) {
                     x[i] = i+1;
                 }
-                rentTotal = RentvsBuyGUI.this.RvB.calculateRentCosts(RvB.getLoanTerm(), RvB.getRent());
-                buyTotal = RentvsBuyGUI.this.RvB.calculateBuyCosts(RvB.getPurchasePrice(), RvB.getDownPayment(), RvB.getApr(), RvB.getLoanTerm());
+                rentTotal = RvB.calculateRentCosts(RvB.getLoanTerm(), RvB.getRent());
+                buyTotal = RvB.calculateBuyCosts(RvB.getPurchasePrice(), RvB.getDownPayment(), RvB.getApr(), RvB.getLoanTerm());
 
                 close();
-                new RentvsBuyGUI(RentvsBuyGUI.this.RvB);
+                new RentvsBuyGUI(RvB);
             }
         });
         yearComboBox.addActionListener(new ActionListener() {
@@ -160,13 +159,6 @@ public class RentvsBuyGUI extends JFrame{
     private void createUIComponents() {
         LineChart line = new LineChart("Rent", "Buy", x, "Years", rentTotal, buyTotal, "Cost");
         linePanel = line.createChartPanel("Rent vs Buy", "Rent", "Buy", x, rentTotal, buyTotal);
-
-    }
-
-    public static void main(String[] args) {
-        RentvsBuyGUI r = new RentvsBuyGUI(new RentvsBuy());
-
-
 
     }
 }

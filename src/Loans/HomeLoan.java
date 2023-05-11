@@ -1,10 +1,11 @@
+//Extends loan -- adds home buying variables and calculates affordable price
 package Loans;
 
 public class HomeLoan extends Loan {
     double yearlyIncome = 0;
-    double monthlyMortgage = 0;
     double housePrice = 0;
 
+    //Getters and setters
     public double getHousePrice(){
         return housePrice;
     }
@@ -17,19 +18,26 @@ public class HomeLoan extends Loan {
     public void setYearlyIncome(double yearlyIncome){
         this.yearlyIncome = yearlyIncome;
     }
-    public double getMonthlyMortgage(){
-        return monthlyMortgage;
-    }
-    public void setMonthlyMortgage(double monthlyMortgage){
-        this.monthlyMortgage = monthlyMortgage;
-    }
-    //use yearly income to check dti>?
-    public double calculateAffordability(double yearlyIncome, double downPayment, double interestRate, int loanTerm, double monthlyMortgage) {
-        double monthlyInterestRate = interestRate / 100 / 12;
-        int loanMonths = loanTerm * 12;
 
-        double loanAmount = (monthlyMortgage / monthlyInterestRate) * (1 - Math.pow(1 + monthlyInterestRate, -loanMonths));
+    //Calculates affordable house price
+    public double calculateAffordability(double income, int loanTerm, double interest, double payment, double down) {
 
-        return loanAmount + downPayment;
+        // Check if the preferred payment is less than or equal to the maximum payment
+        if (payment <= (income / 12) * 0.28) {
+            // Calculate the maximum loan amount for the mortgage
+            double r = interest / 100 / 12;
+            int n = loanTerm * 12;
+            double loan = payment * (Math.pow(1 + r, n) - 1) / (r * Math.pow(1 + r, n));
+
+            // Calculate the maximum house price by adding the down payment amount to the loan amount
+            double house = loan + down;
+
+            // Return the house price
+            return house;
+
+        } else {
+            // If the preferred payment is more than the maximum payment, return -1 as an error code
+            return -1;
+        }
     }
 }

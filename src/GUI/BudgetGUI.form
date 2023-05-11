@@ -41,6 +41,7 @@
               <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <font name="Arial Black" style="1"/>
               <text value="Expenses"/>
             </properties>
           </component>
@@ -49,6 +50,7 @@
               <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <font name="Arial Black" style="2"/>
               <text value="Needs"/>
             </properties>
           </component>
@@ -111,6 +113,7 @@
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <font name="Arial Black" style="1"/>
               <text value="Monthly Income"/>
             </properties>
           </component>
@@ -243,6 +246,7 @@
               <grid row="11" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <font name="Arial Black" style="2"/>
               <text value="Wants"/>
             </properties>
           </component>
@@ -390,6 +394,7 @@
               <grid row="16" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <font name="Arial Black" style="1"/>
               <text value="Savings and Debts"/>
             </properties>
           </component>
@@ -526,6 +531,7 @@
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <font name="Arial Black" style="1"/>
               <text value="Totals"/>
             </properties>
           </component>
@@ -534,6 +540,7 @@
               <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <font name="Arial Black" style="1"/>
               <text value="50/30/20 Comparison"/>
             </properties>
           </component>

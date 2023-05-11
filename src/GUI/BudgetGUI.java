@@ -5,7 +5,7 @@ import Finances.NetWorth;
 import Finances.RentvsBuy;
 import Loans.AutoLoan;
 import Loans.HomeLoan;
-import Loans.PersonalLoan;
+import Loans.Loan;
 
 import javax.swing.*;
 import java.awt.*;
@@ -90,11 +90,7 @@ public class BudgetGUI extends JFrame {
         pack();
 
 
-     /*   try {
-            UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel"); //Windows Look and feel
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
-            e.printStackTrace();
-        }*/
+
         calculateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -149,7 +145,7 @@ public class BudgetGUI extends JFrame {
                     new RentvsBuyGUI(new RentvsBuy());
                 }else {
                     close();
-                    new LoanGUI(new AutoLoan(), new HomeLoan(), new PersonalLoan());
+                    new LoanGUI(new AutoLoan(), new HomeLoan(), new Loan());
                 }
 
             }

@@ -6,19 +6,22 @@
   <component name="ChangeListManager">
     <list default="true" id="b7349a84-ddda-4912-b1d6-fcc3a1509de1" name="Changes" comment="Added to Budget and associated gui">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Finances/Budget.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Finances/Budget.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Finances/NetWorth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Finances/NetWorth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Finances/RentvsBuy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Finances/RentvsBuy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/BudgetGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/BudgetGUI.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/BudgetGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/BudgetGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/LoanGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/LoanGUI.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/LoanGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/LoanGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/NetWorthGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/NetWorthGUI.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/NetWorthGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/NetWorthGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/RentvsBuyGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/RentvsBuyGUI.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/RentvsBuyGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/RentvsBuyGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Graphs/LineChart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphs/LineChart.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Loans/AutoLoan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Loans/AutoLoan.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Loans/HomeLoan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Loans/HomeLoan.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Loans/Loan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Loans/Loan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Loans/PersonalLoan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Loans/PersonalLoan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Loans/PersonalLoan.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +58,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "false",
+    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "true",
     "UI_DESIGNER_EDITOR_MODE.PaletteManager.STATE": "right",
     "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
     "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.STATE": "left",
@@ -65,7 +68,7 @@
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15527344",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -138,5 +141,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added to Budget and associated gui" />
     <option name="LAST_COMMIT_MESSAGE" value="Added to Budget and associated gui" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

@@ -1,3 +1,4 @@
+//Base Loan package to store generic information and calculate payment information
 package Loans;
 
 import java.text.DecimalFormat;
@@ -13,6 +14,7 @@ public class Loan {
     double totalPayment = 0;
     int selectedIndex = 0;
 
+    //Getters and setters
     public int getSelectedIndex(){
         return selectedIndex;
     }
@@ -72,9 +74,11 @@ public class Loan {
         this.loanTerm = loanTerm;
     }
 
+    //Calculates loan amortization over time
     public double[][] calculateAmortization(double principal, double interestRate, int loanTerm, double monthlyPayment, String unit) {
         DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
         int numberOfPayments;
+        // Calculate number of payments
         if (Objects.equals(unit,"Months")){
              numberOfPayments = loanTerm;
         }else {
@@ -82,9 +86,6 @@ public class Loan {
         }
         // Convert interest rate to decimal and calculate monthly interest rate
         double monthlyInterestRate = interestRate / 100 / 12;
-
-        // Calculate number of payments
-
 
         // Create an array to store the amortization schedule
         double[][] amortizationSchedule = new double[numberOfPayments][4];
@@ -107,5 +108,14 @@ public class Loan {
 
         return amortizationSchedule;
     }
+    //Calculate expected monthly payment
+    public double calculateMonthlyPayment(int loanTerm, double interestRate,double loanAmount) {
+        // Calculate the monthly interest rate
+        double monthlyInterestRate = interestRate / 12 / 100;
+
+        // Calculate the monthly payment
+        return (loanAmount * monthlyInterestRate) / (1 - Math.pow(1 + monthlyInterestRate, -loanTerm));
+    }
+
 }
 
