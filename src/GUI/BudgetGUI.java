@@ -1,3 +1,4 @@
+//GUI for budget calculating monthly spending
 package GUI;
 
 import Finances.Budget;
@@ -12,7 +13,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class BudgetGUI extends JFrame {
-
+    //GUI variables
      JTextField travelField;
      JTextField diningField;
      JPanel mainPanel;
@@ -88,13 +89,10 @@ public class BudgetGUI extends JFrame {
         setVisible(true);
         setContentPane(mainPanel);
         pack();
-
-
-
+        //Sets GUI input to Budget class
         calculateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               // budget.setDining(Double.parseDouble(diningField.getText()));
                 //Set income Value
                 budget.setIncome(Double.parseDouble(incomeField.getText()));
                 budget.setOtherIncome(Double.parseDouble(otherIncomeField.getText()));
@@ -133,6 +131,7 @@ public class BudgetGUI extends JFrame {
 
             }
         });
+        //Switches between GUI pages
         comboBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -150,12 +149,10 @@ public class BudgetGUI extends JFrame {
 
             }
         });
-
     }
+    //Closes current window when called
     public void close(){
         WindowEvent closeWindow = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
         Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(closeWindow);
     }
-
-
 }
