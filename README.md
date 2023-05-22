@@ -6,13 +6,13 @@ The premise behind this project is to create a general financial application tha
 
 Example Screenshots of the applications:
 
-[Imgur](https://imgur.com/dpf4EHL)
+![Imgur](https://imgur.com/dpf4EHL)
 
-[Imgur](https://imgur.com/Q8NeHYq)
+![Imgur](https://imgur.com/Q8NeHYq)
 
-[Imgur](https://imgur.com/P3fcTID)
+![Imgur](https://imgur.com/P3fcTID)
 
-[Imgur](https://imgur.com/XkwRqGf)
+![Imgur](https://imgur.com/XkwRqGf)
 
-[Imgur](https://imgur.com/9EPi3L6)
+![Imgur](https://imgur.com/9EPi3L6)
 
